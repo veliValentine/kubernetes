@@ -3,3 +3,5 @@
 
 ## About
 University of helsinki kubernetes course - [course page](https://devopswithkubernetes.com/)
+
+All applications not imported are build using nodejs version `v16.15.0`. 
