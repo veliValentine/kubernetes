@@ -5,3 +5,12 @@
 University of helsinki kubernetes course - [course page](https://devopswithkubernetes.com/)
 
 All applications not imported are build using nodejs version `v16.15.0`. 
+
+## Excerises
+
+### part1
+
+#### 1.01
+```
+kubectl create deployment log-output --image=velivalentine/log-output:1.01-prod
+```
