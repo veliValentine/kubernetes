@@ -24,3 +24,8 @@ kubectl create deployment todo-app --image=velivalentine/todo-app:v0.1
 ```
 kubectl apply -f part1/log-output/manifests/deployment.yaml
 ```
+
+#### 1.04
+```
+kubectl apply -f part1/todo-app/manifests/deployment.yaml
+```
