@@ -29,3 +29,9 @@ kubectl apply -f part1/log-output/manifests/deployment.yaml
 ```
 kubectl apply -f part1/todo-app/manifests/deployment.yaml
 ```
+
+#### 1.05
+```
+kubectl port-forward todo-app-dep-7dbd7bc6b-b85tw 3000:3000
+```
+Open [http://localhost:3000/health](http://localhost:3000/health)
