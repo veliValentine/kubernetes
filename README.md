@@ -19,3 +19,8 @@ kubectl create deployment log-output --image=velivalentine/log-output:1.01-prod
 ```
 kubectl create deployment todo-app --image=velivalentine/todo-app:v0.1
 ```
+
+#### 1.03
+```
+kubectl apply -f part1/log-output/manifests/deployment.yaml
+```
