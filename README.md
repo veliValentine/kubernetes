@@ -14,3 +14,8 @@ All applications not imported are build using nodejs version `v16.15.0`.
 ```
 kubectl create deployment log-output --image=velivalentine/log-output:1.01-prod
 ```
+
+#### 1.02
+```
+kubectl create deployment todo-app --image=velivalentine/todo-app:v0.1
+```

@@ -5,10 +5,10 @@
 Simple todo application.
 
 ## Run application
-1. Pull image from **[docker hub]()**
-   1. `docker pull velivalentine/` **FILL**
+1. Pull image from [docker hub](https://hub.docker.com/repository/docker/velivalentine/todo-app/tags?page=1&ordering=last_updated)
+   1. `docker pull velivalentine/todo-app:v0.1`
 2. Run pulled image
-   1. `docker run -it velivalentine/`**FILL**
+   1. `docker run -it velivalentine/todo-app:v0.1`
 
 ## Get started
 
