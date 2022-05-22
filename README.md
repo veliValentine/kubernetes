@@ -49,6 +49,17 @@ kubectl apply -f part1/log-output/manifests/
 kubectl get svc,ing
 ```
 
+#### 1.08
+```
+kubectl delete ingress.networking.k8s.io/log-output-ingress
+```
+```
+kubectl apply -f part1/todo-app/manifests/
+```
+```
+kubectl get svc,ing
+```
+
 ## Notes
 
 ### Lens config
