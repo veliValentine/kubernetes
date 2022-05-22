@@ -60,6 +60,17 @@ kubectl apply -f part1/todo-app/manifests/
 kubectl get svc,ing
 ```
 
+#### 1.09
+```
+kubectl delete ingress.networking.k8s.io/todo-app-ingress
+```
+```
+kubectl apply -f part1/log-output/manifests/
+```
+```
+kubectl apply -f part1/ping-pong-app/manifests/
+```
+
 ## Notes
 
 ### Lens config
