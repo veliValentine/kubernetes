@@ -1,17 +1,12 @@
-import { v4 as uuidv4 } from 'uuid'
+import app from './src/app.js'
+import logIdWithTimestamp from './src/logIdTimestamp.js'
+import config from './src/utils/config.js'
+import logger from './src/utils/logger.js'
 
-const INTERVAL_TIME = process.env.INTERVAL_TIME ?? 5000
+logIdWithTimestamp()
 
-const id = uuidv4()
+const { PORT } = config
 
-const logIdWithTimestamp = () => {
-  const time = new Date().toISOString()
-  console.log(`${time}: ${id}`)
-}
-
-const startInterval = () => {
-  logIdWithTimestamp()
-  setInterval(logIdWithTimestamp, INTERVAL_TIME)
-}
-
-startInterval()
+app.listen(PORT, () => {
+	logger.log(`Server started in port ${PORT}`)
+})

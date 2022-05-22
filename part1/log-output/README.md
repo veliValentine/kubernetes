@@ -35,3 +35,9 @@ To check style errors run `npm run lint`
 
 ### Autofix style errors
 To autofix style errors run `npm run lint-fix`
+
+## API
+| endpoint  | method | response                 |
+| --------- | ------ | ------------------------ |
+| `/health` | `GET`  | `OK`                     |
+| `/status` | `GET`  | `SERVER-TIME: SERVER-ID` |
