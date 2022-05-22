@@ -41,7 +41,15 @@ Open [http://localhost:3000/health](http://localhost:3000/health)
 kubectl apply -f part1/todo-app/manifests/service.yaml
 ```
 
+#### 1.07
+```
+kubectl apply -f part1/log-output/manifests/
+```
+```
+kubectl get svc,ing
+```
+
 ## Notes
 
 ### Lens config
-`config view --minify --raw >config.log`
+`kubectl config view --minify --raw > config.log`
