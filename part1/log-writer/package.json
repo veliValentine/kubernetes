@@ -1,0 +1,25 @@
+{
+	"name": "log-writer",
+	"version": "1.0.0",
+	"description": "writes to log file",
+	"type": "module",
+	"main": "index.js",
+	"scripts": {
+		"dev": "nodemon index.js",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/veliValentine/kubernetes.git"
+	},
+	"author": "velivalentine",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/veliValentine/kubernetes/issues"
+	},
+	"homepage": "https://github.com/veliValentine/kubernetes#readme",
+	"devDependencies": {
+		"nodemon": "^2.0.16"
+	}
+}
