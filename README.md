@@ -71,6 +71,12 @@ kubectl apply -f part1/log-output/manifests/
 kubectl apply -f part1/ping-pong-app/manifests/
 ```
 
+#### 1.10
+```
+kubectl apply -f part1/log-output/manifests/
+```
+
+
 ## Notes
 
 ### Lens config

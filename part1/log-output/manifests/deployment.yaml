@@ -12,6 +12,30 @@ spec:
       labels:
         app: log-output
     spec:
+      volumes:
+        - name: shared-logs
       containers:
         - name: log-output
-          image: velivalentine/log-output:1.07-prod
+          image: velivalentine/log-output:1.10-prod
+          resources:
+            limits:
+              memory: "300M"
+              cpu: "1"
+          volumeMounts:
+            - mountPath: /usr/src/logs
+              name: shared-logs
+          env:
+            - name: LOG_PATH
+              value: "/usr/src/logs/shared.log"
+        - name: log-writer
+          image: velivalentine/log-writer:1.10-prod
+          resources:
+            limits:
+              memory: "300M"
+              cpu: "1"
+          volumeMounts:
+            - mountPath: /usr/src/logs
+              name: shared-logs
+          env:
+            - name: LOG_PATH
+              value: "/usr/src/logs/shared.log"
