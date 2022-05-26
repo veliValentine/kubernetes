@@ -41,3 +41,9 @@ To autofix style errors run `npm run lint-fix`
 | --------- | ------ | -------------- |
 | `/health` | `GET`  | `OK`           |
 | `/`       | `GET`  | `pong counter` |
+
+## ENV
+| key              | default value     | info                                |
+| ---------------- | ----------------- | ----------------------------------- |
+| `PORT`           | `3000`            | `Application port`                  |
+| `PING_PONG_PATH` | `./ping-pong.log` | `Path where ping pongs are written` |

@@ -1,5 +1,5 @@
 import express from 'express'
-import { counter, increaseCounter } from './services/counterService.js'
+import { counterString, increaseCounter } from './services/counterService.js'
 
 const app = express()
 
@@ -8,9 +8,8 @@ app.use('/health', (_req, res) => {
 })
 
 app.use('/', (_req, res) => {
-  const pong = `pong ${counter}`
   increaseCounter()
-  res.send(pong)
+  res.send(counterString())
 })
 
 export default app
