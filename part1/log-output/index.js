@@ -8,5 +8,5 @@ logIdWithTimestamp()
 const { PORT } = config
 
 app.listen(PORT, () => {
-	logger.log(`Server started in port ${PORT}`)
+  logger.log(`Server started in port ${PORT}`)
 })

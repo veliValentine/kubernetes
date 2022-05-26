@@ -8,14 +8,14 @@ const { INTERVAL_TIME } = config
 let timeoutId
 
 const logIdWithTimestamp = () => {
-	const time = getCurrentTimestamp()
-	logger.log(`${time}: ${ID}`)
-	useTimeout()
+  const time = getCurrentTimestamp()
+  logger.log(`${time}: ${ID}`)
+  useTimeout()
 }
 
 const useTimeout = () => {
-	clearTimeout(timeoutId)
-	timeoutId = setTimeout(logIdWithTimestamp, INTERVAL_TIME)
+  clearTimeout(timeoutId)
+  timeoutId = setTimeout(logIdWithTimestamp, INTERVAL_TIME)
 }
 
 export default logIdWithTimestamp

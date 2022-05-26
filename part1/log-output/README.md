@@ -37,7 +37,16 @@ To check style errors run `npm run lint`
 To autofix style errors run `npm run lint-fix`
 
 ## API
-| endpoint  | method | response                 |
-| --------- | ------ | ------------------------ |
-| `/health` | `GET`  | `OK`                     |
-| `/status` | `GET`  | `SERVER-TIME: SERVER-ID` |
+| endpoint  | method | response                      |
+| --------- | ------ | ----------------------------- |
+| `/health` | `GET`  | `OK`                          |
+| `/status` | `GET`  | `SERVER-TIME: SERVER-ID`      |
+| `/read`   | `GET`  | JSON containing hash and logs |
+
+## Env variables
+
+| key             | default value | info                                |
+| --------------- | ------------- | ----------------------------------- |
+| `PORT`          | `3000`        | `Application port`                  |
+| `INTERVAL_TIME` | `5000`        | `Interval time that log is created` |
+| `LOG_PATH`      | null          | `Path where logs are read`          |
