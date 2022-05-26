@@ -9,11 +9,16 @@ app.use('/health', (_req, res) => {
   res.send('ok')
 })
 
-app.use('/status', (_req, res) => {
+app.use('/', (_req, res) => {
   const currentTime = getCurrentTimestamp()
-  const status = `${currentTime}: ${ID}`
-  res.send(status)
+  const response = lines(
+		`${currentTime}: ${ID}`,
+		fileService.readPingPong()
+  )
+  res.send(response)
 })
+
+const lines = (...lines) => lines.join('<br/>')
 
 app.use('/read', (_req, res) => {
   try {

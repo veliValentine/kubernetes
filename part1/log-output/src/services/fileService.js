@@ -4,6 +4,11 @@ import logger from '../utils/logger.js'
 
 export const UTF_8 = 'utf-8'
 
+const {
+  LOG_PATH,
+  PING_PONG_PATH
+} = config
+
 const readFile = (path, encoding = UTF_8) => {
   if (!path) throw new Error('path must be defined')
   try {
@@ -16,12 +21,17 @@ const readFile = (path, encoding = UTF_8) => {
 }
 
 const readLog = () => {
-  const { LOG_PATH } = config
   if (!LOG_PATH) throw new Error('ENV variable LOG_PATH must be defined')
-  return readFile(config.LOG_PATH)
+  return readFile(LOG_PATH)
+}
+
+const readPingPong = () => {
+  if (!PING_PONG_PATH) return
+  return JSON.parse(readFile(PING_PONG_PATH))
 }
 
 export default {
   readFile,
-  readLog
+  readLog,
+  readPingPong
 }
