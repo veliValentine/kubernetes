@@ -12,6 +12,19 @@ spec:
       labels:
         app: todo-app
     spec:
+      volumes:
+        - name: images-volume
+          emptyDir: {}
       containers:
         - name: todo-app
-          image: velivalentine/todo-app:v0.1
+          image: velivalentine/todo-app@sha256:f87747092ec9e54460dc694dc558a1c5b2ba212ade890203731fc8d5b6fe2894
+          resources:
+            limits:
+              memory: "300M"
+              cpu: "1"
+          volumeMounts:
+            - name: images-volume
+              mountPath: /usr/src/app/images
+          env:
+            - name: IMAGE_FOLDER_PATH
+              value: /usr/src/app/images

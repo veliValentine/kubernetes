@@ -83,6 +83,14 @@ kubectl apply \
 -f part1/ping-pong-app/manifests/
 ```
 
+#### 1.12
+```
+kubectl delete -f part1/log-output/manifests/
+```
+```
+kubectl apply -f part1/todo-app/manifests/
+```
+
 ## Notes
 
 ### Lens config
