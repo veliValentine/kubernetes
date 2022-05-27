@@ -12,9 +12,22 @@ spec:
       labels:
         app: ping-pong-app
     spec:
+      volumes:
+        - name: shared-image
+          persistentVolumeClaim:
+            claimName: persistent-volume-claim
       containers:
         - name: ping-pong-app
-          image: velivalentine/ping-pong-app:1.09-prod
+          image: velivalentine/ping-pong-app@sha256:665214ba2a9e03a3243f96aca54a68d3d583751f54fa0fe349bed3f5885f7101
+          resources:
+            limits:
+              memory: "300M"
+              cpu: "1"
           env:
             - name: "PORT"
               value: "3001"
+            - name: PING_PONG_PATH
+              value: /usr/src/image/ping-pong.log
+          volumeMounts:
+            - mountPath: /usr/src/image
+              name: shared-image

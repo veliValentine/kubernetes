@@ -65,10 +65,9 @@ kubectl get svc,ing
 kubectl delete ingress.networking.k8s.io/todo-app-ingress
 ```
 ```
-kubectl apply -f part1/log-output/manifests/
-```
-```
-kubectl apply -f part1/ping-pong-app/manifests/
+kubectl apply \
+-f part1/log-output/manifests/ \
+-f part1/ping-pong-app/manifests/
 ```
 
 #### 1.10
@@ -76,6 +75,13 @@ kubectl apply -f part1/ping-pong-app/manifests/
 kubectl apply -f part1/log-output/manifests/
 ```
 
+#### 1.11
+```
+kubectl apply \
+-f part1/persistentStorage/manifest/ \
+-f part1/log-output/manifests/ \
+-f part1/ping-pong-app/manifests/
+```
 
 ## Notes
 
