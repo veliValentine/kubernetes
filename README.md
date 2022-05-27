@@ -91,6 +91,14 @@ kubectl delete -f part1/log-output/manifests/
 kubectl apply -f part1/todo-app/manifests/
 ```
 
+#### 1.13
+```
+docker run -d -p 3001:3000 -e IMAGE_FOLDER_PATH='/usr/src/app/images' velivalentine/todo-app:v0.7
+```
+```
+docker run -d -p 80:3000 velivalentine/todo-app-client:v0.7
+```
+
 ## Notes
 
 ### Lens config
