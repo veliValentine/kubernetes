@@ -1,7 +1,9 @@
 import express from 'express'
 import dailyImageService from './services/dailyImageService.js'
+import cors from 'cors'
 
 const app = express()
+app.use(cors())
 
 app.get('/health', (_req, res) => {
   res.send('ok')
