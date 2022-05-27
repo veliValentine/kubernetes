@@ -2,11 +2,9 @@ FROM node:16.15.0-stretch-slim AS build-stage
 
 WORKDIR /usr/src/app
 
-COPY --chown=client:client . .
+COPY . .
 
 RUN npm ci --production
-
-USER client
 
 RUN npm run build
 
