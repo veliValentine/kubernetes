@@ -36,6 +36,13 @@ To check style errors run `npm run lint`
 To autofix style errors run `npm run lint-fix`
 
 ## API
-| endpoint  | method | response                 |
-| --------- | ------ | ------------------------ |
-| `/health` | `GET`  | `OK`                     |
+| endpoint   | method | response              |
+| ---------- | ------ | --------------------- |
+| `/health`  | `GET`  | `OK`                  |
+| `/picture` | `GET`  | Returns daily picture |
+
+## ENV variables
+| variable            | default value | description             |
+| ------------------- | ------------- | ----------------------- |
+| `PORT`              | `3000`        | application port        |
+| `IMAGE_FOLDER_PATH` | null          | where images are stored |

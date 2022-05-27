@@ -1,7 +1,9 @@
 const {
-	PORT = 3000,
+  PORT = 3000,
+  IMAGE_FOLDER_PATH = null
 } = process.env
 
 export default {
-	PORT
+  PORT,
+  IMAGE_FOLDER_PATH
 }
