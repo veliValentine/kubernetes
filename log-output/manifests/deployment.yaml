@@ -14,12 +14,9 @@ spec:
     spec:
       volumes:
         - name: shared-logs
-        - name: shared-image
-          persistentVolumeClaim:
-            claimName: persistent-volume-claim
       containers:
         - name: log-output
-          image: velivalentine/log-output@sha256:3211a19a1d7351394c6e9883b525176d79734a75d96f033ea158fb915ef3b8fc
+          image: velivalentine/log-output@sha256:05ff400aa3bc643b2f2f8bc52b8d70a0d7a1ea2ea2caf103c7d25a75fd7f5579
           resources:
             limits:
               memory: "300M"
@@ -27,13 +24,11 @@ spec:
           volumeMounts:
             - mountPath: /usr/src/logs
               name: shared-logs
-            - mountPath: /usr/src/image
-              name: shared-image
           env:
             - name: LOG_PATH
               value: "/usr/src/logs/shared.log"
-            - name: PING_PONG_PATH
-              value: /usr/src/image/ping-pong.log
+            - name: PING_PONG_URL
+              value: http://ping-pong-app-service:2345/
         - name: log-writer
           image: velivalentine/log-writer:1.10-prod
           resources:

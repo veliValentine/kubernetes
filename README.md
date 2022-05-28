@@ -99,6 +99,14 @@ docker run -d -p 3001:3000 -e IMAGE_FOLDER_PATH='/usr/src/app/images' velivalent
 docker run -d -p 80:3000 velivalentine/todo-app-client:v0.7
 ```
 
+### Part 2
+
+#### 2.01
+```
+kubectl apply -f log-output/manifests/ -f ping-pong-app/manifests/
+```
+
+
 ## Notes
 
 ### Lens config
