@@ -106,6 +106,14 @@ docker run -d -p 80:3000 velivalentine/todo-app-client:v0.7
 kubectl apply -f log-output/manifests/ -f ping-pong-app/manifests/
 ```
 
+#### 2.02
+```
+docker run -d -p 3001:3000 velivalentine/todo-app:v1.0
+```
+```
+docker run -p 3000:80 -e TODO_API_URL=http://localhost:3001 -it velivalentine/todo-app-client:v1.0
+```
+
 
 ## Notes
 
