@@ -13,7 +13,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start-todo-api": "cd ../todo-app && IMAGE_FOLDER_PATH='/home/user1/kubernetes/part1/todo-app/images' PORT=3001 npm run dev",
+    "start-todo-api": "cd ../todo-app && IMAGE_FOLDER_PATH='/home/user1/kubernetes/todo-app/images' PORT=3001 npm run dev",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

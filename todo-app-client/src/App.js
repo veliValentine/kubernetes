@@ -11,12 +11,12 @@ const initialTodos = [
 ]
 
 const App = () => {
-  const [todos, addTodo] = useTodo(initialTodos)
+  const [todos, addTodo, loadingTodos] = useTodo(initialTodos)
   return (
     <div>
       <DailyImage />
       <TodoForm addTodo={addTodo} />
-      <TodoList todos={todos} />
+      {loadingTodos ? 'loading...' : <TodoList todos={todos} />}
     </div>
   );
 }

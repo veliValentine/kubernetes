@@ -8,4 +8,21 @@ const todoInstance = axios.create({
 
 healthCheck(todoInstance, 'TODO api')
 
+const getTodos = async () => {
+  const { data } = await todoInstance.get("/todos")
+  return data
+}
+
+const addTodo = async (todo) => {
+  const { data } = await todoInstance.post('/todos', todo)
+  return data
+}
+
 export const DAILY_PICTURE_URL = config.TODO_API_URL + '/picture'
+
+const todoService = {
+  getTodos,
+  addTodo
+}
+
+export default todoService
