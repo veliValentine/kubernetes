@@ -2,8 +2,16 @@ import express from 'express'
 import dailyImageService from './services/dailyImageService.js'
 import cors from 'cors'
 
+import todoController from './controllers/todoController.js'
+import middleware from './middleware/index.js'
+
 const app = express()
 app.use(cors())
+app.use(express.json())
+
+app.use(middleware.logRequest)
+
+app.use('/todos', todoController)
 
 app.get('/health', (_req, res) => {
   res.send('ok')

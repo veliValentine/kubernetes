@@ -40,6 +40,8 @@ To autofix style errors run `npm run lint-fix`
 | ---------- | ------ | --------------------- |
 | `/health`  | `GET`  | `OK`                  |
 | `/picture` | `GET`  | Returns daily picture |
+| `/todos`   | `GET`  | Returns all todos     |
+| `/todos`   | `POST` | Creates new todo      |
 
 ## ENV variables
 | variable            | default value | description             |
