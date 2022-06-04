@@ -114,8 +114,20 @@ docker run -d -p 3001:3000 velivalentine/todo-app:v1.0
 docker run -p 3000:80 -e TODO_API_URL=http://localhost:3001 -it velivalentine/todo-app-client:v1.0
 ```
 
+#### 2.03
+```
+kubectl create namespace space-1
+```
+```
+kubectl apply \
+-f log-output/manifests/ \
+-f ping-pong-app/manifests/
+```
 
 ## Notes
 
 ### Lens config
 `kubectl config view --minify --raw > config.log`
+
+### Set namespace
+`kubectl config set-context --current --namespace=`
