@@ -13,6 +13,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: todo-app-client-service
+                name: todo-app-service
                 port:
                   number: 2345

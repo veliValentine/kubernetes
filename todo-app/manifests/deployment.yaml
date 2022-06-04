@@ -18,7 +18,7 @@ spec:
           emptyDir: {}
       containers:
         - name: todo-app
-          image: velivalentine/todo-app@sha256:b19d313806c4042c517373fbad8830f760a06cae0cda6ebe163f88b01ca820be
+          image: velivalentine/todo-app@sha256:2eee262c274f8a40bd9d17a4afbe646b3ca47da488c10caab54de84f92d17e8a
           resources:
             limits:
               memory: "300M"

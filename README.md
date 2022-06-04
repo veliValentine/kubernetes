@@ -124,6 +124,15 @@ kubectl apply \
 -f ping-pong-app/manifests/
 ```
 
+#### 2.04
+```
+kubectl create namespace project-1
+```
+```
+kubectl apply \
+-f todo-app/manifests/
+```
+
 ## Notes
 
 ### Lens config
