@@ -3,9 +3,9 @@
 Client side of the todo app.
 
 ## ENV variables
-| Variable     | Default value           | Description       |
-| ------------ | ----------------------- | ----------------- |
-| TODO_API_URL | `http://localhost:3001` | TODO api base url |
+| Variable               | Default value           | Description       |
+| ---------------------- | ----------------------- | ----------------- |
+| REACT_APP_TODO_API_URL | `` | TODO api base url |
 
 # Getting Started with Create React App
 

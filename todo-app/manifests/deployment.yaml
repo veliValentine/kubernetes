@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: todo-app-dep
+  namespace: project-1
 spec:
   replicas: 1
   selector:
@@ -17,7 +18,7 @@ spec:
           emptyDir: {}
       containers:
         - name: todo-app
-          image: velivalentine/todo-app@sha256:f87747092ec9e54460dc694dc558a1c5b2ba212ade890203731fc8d5b6fe2894
+          image: velivalentine/todo-app@sha256:b19d313806c4042c517373fbad8830f760a06cae0cda6ebe163f88b01ca820be
           resources:
             limits:
               memory: "300M"
