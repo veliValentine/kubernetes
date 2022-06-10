@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: ping-pong-app
-          image: velivalentine/ping-pong-app@sha256:665214ba2a9e03a3243f96aca54a68d3d583751f54fa0fe349bed3f5885f7101
+          image: velivalentine/ping-pong-app@sha256:21f0f1d5a7beb92b94fff27441a497867d2fa9a2d6afb35038de0a2923b56d70
           resources:
             limits:
               memory: "300M"
@@ -23,3 +23,15 @@ spec:
           env:
             - name: "PORT"
               value: "3001"
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secrets
+                  key: POSTGRES_USERNAME
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secrets
+                  key: POSTGRES_PASSWORD
+            - name: DB_POSTGRES_URL
+              value: "postgres://$(POSTGRES_USER):$(POSTGRES_PASSWORD)@postgres-service:5432"

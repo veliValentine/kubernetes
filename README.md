@@ -162,6 +162,17 @@ Nothing to commit. All future secrets shall use age and SOPS encryption
 kubectl apply -f log-output/manifests/
 ```
 
+#### 2.07
+```
+export SOPS_AGE_KEY_FILE=$(pwd)/../key.txt && \
+sops --decrypt secrets/manifest/secret.enc.yaml | kubectl apply -f -
+```
+```
+kubectl apply \
+-f postgres/manifest \
+-f ping-pong-app/manifests/
+```
+
 ## Notes
 ```
 ```
