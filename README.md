@@ -133,10 +133,35 @@ kubectl apply \
 -f todo-app/manifests/
 ```
 
+#### 2.05
+Nothing to commit. All future secrets shall use age and SOPS encryption
+
 ## Notes
+```
+```
 
 ### Lens config
 `kubectl config view --minify --raw > config.log`
 
 ### Set namespace
 `kubectl config set-context --current --namespace=`
+
+### Age key gen
+```
+age-keygen -o key.txt
+```
+
+### SOPS encryption
+```
+sops --encrypt \
+       --age age_public_key \
+       --encrypted-regex '^(data)$' \
+       file_to_encrypt.yaml > encrypted_file.enc.yaml
+```
+### SOPS decryption
+```
+export SOPS_AGE_KEY_FILE=$(pwd)/key.txt
+```
+```
+sops --decrypt secret.enc.yaml | kubectl apply -f -
+```
