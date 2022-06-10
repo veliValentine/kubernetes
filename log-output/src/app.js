@@ -3,6 +3,7 @@ import { getCurrentTimestamp } from './services/dateService.js'
 import fileService from './services/fileService.js'
 import { createId, ID } from './services/idService.js'
 import pingPongService from './services/pingPongService.js'
+import config from './utils/config.js'
 
 const app = express()
 
@@ -22,6 +23,7 @@ app.use('/', async (_req, res) => {
     const currentTime = getCurrentTimestamp()
     const pingPongs = await pingPongService.getPingPong()
     const response = lines(
+      config.MESSAGE,
       `${currentTime}: ${ID}`,
       pingPongs
     )

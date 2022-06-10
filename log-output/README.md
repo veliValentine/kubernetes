@@ -52,3 +52,4 @@ To autofix style errors run `npm run lint-fix`
 | `LOG_PATH`       | null          | `Path where logs are read`          |
 | `PING_PONG_PATH` | null          | `Path where ping pongs are read`    |
 | `PING_PONG_URL`  | null          | Ping pong app url                   |
+| `MESSAGE`        | `Hi!`         | Message                             |
