@@ -11,6 +11,9 @@ const pingPongInstance = axios.create({
 
 const getPingPong = async () => {
   try {
+    if (PING_PONG_URL === null) {
+      return 'No ping pong url given.'
+    }
     const { data = '' } = await pingPongInstance.get("") ?? {}
     return data
   } catch (error) {
