@@ -157,6 +157,11 @@ kubectl apply \
 #### 2.05
 Nothing to commit. All future secrets shall use age and SOPS encryption
 
+#### 2.06
+```
+kubectl apply -f log-output/manifests/
+```
+
 ## Notes
 ```
 ```
