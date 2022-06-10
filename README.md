@@ -4,7 +4,28 @@
 ## About
 University of helsinki kubernetes course - [course page](https://devopswithkubernetes.com/)
 
-All applications not imported are build using nodejs version `v16.15.0`. 
+All applications not imported are build using nodejs version `v16.15.0`.
+
+All applications has Docker image. Images can be found from [Docker hub - velivalentine](https://hub.docker.com/repositories)
+
+## Install - dev
+Intall nvm (node version manager)
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+```
+Install node version `v16.15.0`
+```
+nvm install v16.15.0
+```
+Open project in new terminal.
+Run `npm i`
+
+## Run production applications
+Install docker https://docs.docker.com/get-docker/
+
+Pull image from [Docker hub - velivalentine](https://hub.docker.com/repositories).
+
+Run pulled image
 
 ## Excerises
 
