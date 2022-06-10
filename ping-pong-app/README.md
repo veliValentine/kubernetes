@@ -43,7 +43,16 @@ To autofix style errors run `npm run lint-fix`
 | `/`       | `GET`  | `pong counter` |
 
 ## ENV
-| key              | default value     | info                                |
-| ---------------- | ----------------- | ----------------------------------- |
-| `PORT`           | `3000`            | `Application port`                  |
-| `PING_PONG_PATH` | `./ping-pong.log` | `Path where ping pongs are written` |
+| key               | default value                                 | info                                |
+| ----------------- | --------------------------------------------- | ----------------------------------- |
+| `PORT`            | `3000`                                        | `Application port`                  |
+| `PING_PONG_PATH`  | `./ping-pong.log`                             | `Path where ping pongs are written` |
+| `DB_POSTGRES_URL` | `postgres://postgres:password@localhost:5432` | `Path where postgres db is running` |
+
+## Postgres - 14.3
+```
+docker pull postgres@sha256:84c6ea4333ae18f25ea0fb18bb142156f2a2e545e0a779d93bbf08079e56bdaf
+```
+```
+docker run -it -p 5432:5432 -e POSTGRES_PASSWORD=password postgres:14.3
+```

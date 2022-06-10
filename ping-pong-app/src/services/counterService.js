@@ -1,16 +1,17 @@
-import config from '../utils/config.js'
-import { writeToFile } from './fileWriter.js'
+import countService from './countService.js'
 
-export let counter = 0
-
-export const increaseCounter = () => {
-	counter++
-	writeCounterToFile()
-	return counter
+const getCount = async () => {
+  const { count } = await countService.findOne() ?? {}
+  return count ?? -1
 }
 
-export const counterString = () => `Ping / Pongs: ${counter}`
+const increaseCounter = async () => {
+  const oldCount = await getCount()
+  const { count } = await countService.update(oldCount + 1)
+  return count
+}
 
-const writeCounterToFile = () => {
-	writeToFile(config.PING_PONG_PATH, counterString())
+export default {
+  getCount,
+  increaseCounter
 }

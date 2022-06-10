@@ -1,5 +1,7 @@
 import express from 'express'
-import { counterString, increaseCounter } from './services/counterService.js'
+import counterService from './services/counterService.js'
+
+import './services/postgresService.js'
 
 const app = express()
 
@@ -14,9 +16,13 @@ app.use('/health', (_req, res) => {
   res.send('ok')
 })
 
-app.use('/', (_req, res) => {
-  increaseCounter()
-  res.send(counterString())
+app.use('/', async (_req, res) => {
+  try {
+    const count = await counterService.increaseCounter()
+    res.send(`Ping / Pongs: ${count}`)
+  } catch (error) {
+    res.status(500).json({ error })
+  }
 })
 
 export default app
