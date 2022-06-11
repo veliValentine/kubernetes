@@ -1,0 +1,7 @@
+FROM bash@sha256:8f89b1dbb035d830be70ce827a76a3d1a06ab838332ce9b1ba30a415bb53d856
+
+WORKDIR /src/usr/app
+
+COPY . .
+
+CMD ["bash", "post-todo.sh"]
