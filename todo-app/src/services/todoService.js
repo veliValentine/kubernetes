@@ -1,11 +1,10 @@
-const TODOS = []
+import Todo from '../models/Todo.js'
 
-const getTodos = () => TODOS
+const getTodos = async () => await Todo.findAll()
 
-const addTodo = (todo) => {
+const addTodo = async (todo) => {
   if (!isValidTodo(todo)) throw new Error('Invalid todo')
-  TODOS.push(todo)
-  return todo
+  return await Todo.create(todo)
 }
 
 const isValidTodo = ({ text = '' }) => {
@@ -14,7 +13,14 @@ const isValidTodo = ({ text = '' }) => {
   return true
 }
 
+const deleteTodo = async (id) => {
+  const todo = await Todo.findByPk(id)
+  if (!todo) return
+  return await todo.destroy()
+}
+
 export default {
   getTodos,
   addTodo,
+  deleteTodo
 }

@@ -44,7 +44,8 @@ To autofix style errors run `npm run lint-fix`
 | `/todos`   | `POST` | Creates new todo      |
 
 ## ENV variables
-| variable            | default value | description             |
-| ------------------- | ------------- | ----------------------- |
-| `PORT`              | `3000`        | application port        |
-| `IMAGE_FOLDER_PATH` | null          | where images are stored |
+| variable            | default value                                 | description             |
+| ------------------- | --------------------------------------------- | ----------------------- |
+| `PORT`              | `3000`                                        | application port        |
+| `IMAGE_FOLDER_PATH` | null                                          | where images are stored |
+| `DB_POSTGRES_URL`   | `postgres://postgres:password@localhost:5432` | Url for postgres db     |
