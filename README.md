@@ -173,6 +173,24 @@ kubectl apply \
 -f ping-pong-app/manifests/
 ```
 
+#### 2.08
+```
+sops --encrypt \
+--age age1s3tm5aglankx9dd9mdekasylal02kpsv03zx3nph38z3mn2azuzqzjpuxc \
+--encrypted-regex '^(data)$' \
+secrets/manifest/todo.secret.yaml > secrets/manifest/todo.secret.enc.yaml
+```
+```
+export SOPS_AGE_KEY_FILE=~/key.txt && \
+sops --decrypt secrets/manifest/todo.secret.enc.yaml | \
+kubectl apply -f -
+```
+```
+kubectl apply \
+-f todo-postgres/manifest \
+-f todo-app/manifests/
+```
+
 ## Notes
 ```
 ```

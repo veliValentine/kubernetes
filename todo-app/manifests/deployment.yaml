@@ -18,7 +18,7 @@ spec:
           emptyDir: {}
       containers:
         - name: todo-app
-          image: velivalentine/todo-app@sha256:2eee262c274f8a40bd9d17a4afbe646b3ca47da488c10caab54de84f92d17e8a
+          image: velivalentine/todo-app@sha256:fd877360f9f480db6d797d23a3cb4150a1c22b84d271110e7638917e472ffcd3
           resources:
             limits:
               memory: "300M"
@@ -29,3 +29,17 @@ spec:
           env:
             - name: IMAGE_FOLDER_PATH
               value: /usr/src/app/images
+            - name: POSTGRES_USERNAME
+              valueFrom:
+                  secretKeyRef:
+                    name: todo-secrets
+                    key: POSTGRES_USERNAME
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                  secretKeyRef:
+                    name: todo-secrets
+                    key: POSTGRES_PASSWORD
+            - name: DB_POSTGRES_URL
+              value: postgres://$(POSTGRES_USERNAME):$(POSTGRES_PASSWORD)@todo-postgres-service:5432
+
+
