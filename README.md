@@ -191,6 +191,17 @@ kubectl apply \
 -f todo-app/manifests/
 ```
 
+#### 2.09
+```
+sh daily-todo/post-todo.sh
+```
+
+#### 2.10
+```
+kubectl -n prometheus port-forward kube-prometheus-stack-1655135423-grafana-6bdb59dbf8-5brpp 3000
+```
+[http://localhost:3000/explore?orgId=1&left=%7B%22datasource%22:%22Loki%22,%22queries%22:%5B%7B%22refId%22:%22A%22,%22expr%22:%22%7Bapp%3D%5C%22todo-app%5C%22%7D%22%7D%5D,%22range%22:%7B%22from%22:%22now-1h%22,%22to%22:%22now%22%7D%7D](http://localhost:3000/explore?orgId=1&left=%7B%22datasource%22:%22Loki%22,%22queries%22:%5B%7B%22refId%22:%22A%22,%22expr%22:%22%7Bapp%3D%5C%22todo-app%5C%22%7D%22%7D%5D,%22range%22:%7B%22from%22:%22now-1h%22,%22to%22:%22now%22%7D%7D)
+
 ## Notes
 ```
 ```
@@ -220,3 +231,12 @@ export SOPS_AGE_KEY_FILE=$(pwd)/key.txt
 ```
 sops --decrypt secret.enc.yaml | kubectl apply -f -
 ```
+
+### Grafana
+```
+kubectl get po -n prometheus
+```
+```
+kubectl -n prometheus port-forward kube-prometheus-stack-1654964728-grafana-646c7f7965-xtdkn 3000
+```
+ 
