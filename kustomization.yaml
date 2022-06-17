@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - todo-app/manifests/cron-job.yaml
+  - todo-app/manifests/deployment.yaml
+  - todo-app/manifests/ingress.yaml
+  - todo-app/manifests/service.yaml
+  - secrets/manifest/todo.secret.yaml
+  - todo-postgres/manifest/service.yaml
+  - todo-postgres/manifest/statefulset.yaml
+images:
+  - name: todo-app-image
+    newName: velivalentine/todo-app@sha256:fd877360f9f480db6d797d23a3cb4150a1c22b84d271110e7638917e472ffcd3
+  - name: postgres-image
+    newName: postgres@sha256:84c6ea4333ae18f25ea0fb18bb142156f2a2e545e0a779d93bbf08079e56bdaf
