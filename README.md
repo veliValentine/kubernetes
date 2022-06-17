@@ -202,12 +202,25 @@ kubectl -n prometheus port-forward kube-prometheus-stack-1655135423-grafana-6bdb
 ```
 [http://localhost:3000/explore?orgId=1&left=%7B%22datasource%22:%22Loki%22,%22queries%22:%5B%7B%22refId%22:%22A%22,%22expr%22:%22%7Bapp%3D%5C%22todo-app%5C%22%7D%22%7D%5D,%22range%22:%7B%22from%22:%22now-1h%22,%22to%22:%22now%22%7D%7D](http://localhost:3000/explore?orgId=1&left=%7B%22datasource%22:%22Loki%22,%22queries%22:%5B%7B%22refId%22:%22A%22,%22expr%22:%22%7Bapp%3D%5C%22todo-app%5C%22%7D%22%7D%5D,%22range%22:%7B%22from%22:%22now-1h%22,%22to%22:%22now%22%7D%7D)
 
+### Part 3
+
+#### 3.01
+```
+sh scripts/part3/3.01.sh
+```
+```
+gcloud container clusters delete dwk-cluster --zone=europe-north1-b
+```
+
+
 ## Notes
 ```
 ```
 
 ### Lens config
-`kubectl config view --minify --raw > config.log`
+```
+kubectl config view --minify --raw > config.log
+```
 
 ### Set namespace
 `kubectl config set-context --current --namespace=`
@@ -217,14 +230,16 @@ kubectl -n prometheus port-forward kube-prometheus-stack-1655135423-grafana-6bdb
 age-keygen -o key.txt
 ```
 
-### SOPS encryption
+### SOPS
+
+#### SOPS encryption
 ```
 sops --encrypt \
        --age age_public_key \
        --encrypted-regex '^(data)$' \
        file_to_encrypt.yaml > encrypted_file.enc.yaml
 ```
-### SOPS decryption
+#### SOPS decryption
 ```
 export SOPS_AGE_KEY_FILE=$(pwd)/key.txt
 ```
@@ -239,4 +254,20 @@ kubectl get po -n prometheus
 ```
 kubectl -n prometheus port-forward kube-prometheus-stack-1654964728-grafana-646c7f7965-xtdkn 3000
 ```
- 
+
+### gcloud
+
+#### create cluster
+```
+gcloud container clusters create <CLUSTER-ID> --zone=europe-north1-b --cluster-version=1.22
+```
+
+#### Enable cluster service
+```
+gcloud services enable container.googleapis.com
+```
+
+#### delete cluster
+```
+gcloud container clusters delete <CLUSTER-ID> --zone=europe-north1-b
+```

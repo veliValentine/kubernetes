@@ -16,10 +16,6 @@ spec:
       containers:
         - name: ping-pong-app
           image: velivalentine/ping-pong-app@sha256:21f0f1d5a7beb92b94fff27441a497867d2fa9a2d6afb35038de0a2923b56d70
-          resources:
-            limits:
-              memory: "300M"
-              cpu: "1"
           env:
             - name: "PORT"
               value: "3001"
