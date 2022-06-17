@@ -36,5 +36,6 @@ jobs:
         env:
           NAMESPACE: ${{ steps.extract_branch.outputs.branch }}
         run: |-
+          kubectl config set-context --current --namespace=$NAMESPACE
           kubectl delete -k .
           kubectl delete namespaces $NAMESPACE
