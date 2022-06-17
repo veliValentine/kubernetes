@@ -52,12 +52,10 @@ jobs:
 
       - name: Deploy
         run: |-
-          kubectl create namespace "$NAMESPACE" || true
-          kubectl config set-context --current --namespace="$NAMESPACE"
-          kustomize edit set namespace "$NAMESPACE"
+          kubectl create namespace $NAMESPACE || true
+          kubectl config set-context --current --namespace=$NAMESPACE
+          kustomize edit set namespace $NAMESPACE
           kustomize edit set image todo-app-image=gcr.io/$PROJECT_ID/$IMAGE:${GITHUB_REF#refs/heads/}-$GITHUB_SHA
           kustomize build . | kubectl apply -f -
-          echo "poop"
-          kubectl rollout status deployment $IMAGE -n "$NAMESPACE"
-          echo "piipp"
+          kubectl rollout status deployment $IMAGE -n $NAMESPACE
           kubectl get services -o wide

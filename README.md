@@ -220,6 +220,14 @@ sh scripts/part3/3.02.sh
 gcloud container clusters delete dwk-cluster --zone=europe-north1-b
 ```
 
+#### 3.03
+```
+gcloud container clusters create dwk-cluster --zone=europe-north1-b --cluster-version=1.22
+```
+Push something to github
+```
+gcloud container clusters delete dwk-cluster --zone=europe-north1-b
+```
 
 ## Notes
 ```
