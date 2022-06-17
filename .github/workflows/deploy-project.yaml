@@ -8,7 +8,6 @@ env:
   GKE_CLUSTER: dwk-cluster
   GKE_ZONE: europe-north1-b
   IMAGE: todo-app-image
-  NAMESPACE: ${GITHUB_REF#refs/heads/}
 
 jobs:
   build-publish-deploy:
@@ -50,7 +49,14 @@ jobs:
       - name: Set up Kustomize
         uses: imranismail/setup-kustomize@v1
 
+      - name: get branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+
       - name: Deploy
+        env:
+          NAMESPACE: ${{ steps.extract_branch.outputs.branch }}
         run: |-
           kubectl create namespace $NAMESPACE || true
           kubectl config set-context --current --namespace=$NAMESPACE
