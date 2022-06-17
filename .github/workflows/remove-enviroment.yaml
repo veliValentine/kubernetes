@@ -9,8 +9,9 @@ env:
   GKE_ZONE: europe-north1-b
 
 jobs:
-  build-publish-deploy:
-    name: Build, Publish and Deploy
+  delete-namespace:
+    if: github.event.ref_type == 'branch'
+    name: Setup connection and remove namespace
     runs-on: ubuntu-latest
 
     steps:
@@ -28,6 +29,5 @@ jobs:
       - name: Set kubectl access to cluster
         run: gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
 
-      - name: Delete
-        run: |-
-          kubectl delete namespaces ${GITHUB_REF#refs/heads/}
+      - name: Delete namespace
+        run: kubectl delete namespaces ${{ github.event.ref }}
