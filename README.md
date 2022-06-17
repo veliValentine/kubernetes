@@ -229,6 +229,12 @@ Push something to github
 gcloud container clusters delete dwk-cluster --zone=europe-north1-b
 ```
 
+#### 3.04
+Create branch and push it to github
+
+#### 3.05
+Delete branch on github
+
 ## Notes
 ```
 ```
