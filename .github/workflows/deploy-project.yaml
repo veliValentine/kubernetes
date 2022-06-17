@@ -57,5 +57,5 @@ jobs:
           kustomize edit set namespace $NAMESPACE
           kustomize edit set image todo-app-image=gcr.io/$PROJECT_ID/$IMAGE:${GITHUB_REF#refs/heads/}-$GITHUB_SHA
           kustomize build . | kubectl apply -f -
-          kubectl rollout status deployment $IMAGE -n $NAMESPACE
-          kubectl get services -o wide
+          kubectl rollout status deployment todo-app-dep -n $NAMESPACE
+          kubectl get services -o wide -n $NAMESPACE
