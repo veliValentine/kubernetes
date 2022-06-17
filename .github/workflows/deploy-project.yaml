@@ -42,7 +42,7 @@ jobs:
 
       - name: Decrypt secrets
         run: |-
-          echo ${{ secrets.AGE-SECRET-KEY }} > key.txt \
+          echo ${{ secrets.AGE_SECRET_KEY }} > key.txt \
           && SOPS_AGE_KEY_FILE=key.txt sops --decrypt secrets/manifest/todo.secret.enc.yaml > secrets/manifest/todo.secret.yaml
 
       - name: Set up Kustomize
