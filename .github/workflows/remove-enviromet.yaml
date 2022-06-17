@@ -1,0 +1,40 @@
+name: Remove project enviroment
+
+on:
+  delete:
+
+env:
+  PROJECT_ID: ${{ secrets.GKE_PROJECT }}
+  GKE_CLUSTER: dwk-cluster
+  GKE_ZONE: europe-north1-b
+  IMAGE: todo-app-image
+
+jobs:
+  build-publish-deploy:
+    name: Build, Publish and Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v0
+        with:
+          project_id: ${{ secrets.GKE_PROJECT }}
+          service_account_key: ${{ secrets.GKE_SA_KEY }}
+          export_default_credentials: true
+      - name: Auth gcloud image registery
+        run: gcloud --quiet auth configure-docker
+      - name: Set kubectl access to cluster
+        run: gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
+
+      - name: Set up Kustomize
+        uses: imranismail/setup-kustomize@v1
+
+      - name: Delete
+        env:
+          NAMESPACE: ${{ steps.extract_branch.outputs.branch }}
+        run: |-
+          kubectl delete -k .
+          kubectl delete namespaces $NAMESPACE
