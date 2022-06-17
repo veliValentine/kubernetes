@@ -4,7 +4,7 @@ metadata:
   name: log-output-service
   namespace: space-1
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: log-output
   ports:
