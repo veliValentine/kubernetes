@@ -40,6 +40,8 @@ jobs:
         run: |-
           docker push "gcr.io/$PROJECT_ID/$IMAGE:${GITHUB_REF#refs/heads/}-$GITHUB_SHA"
 
+      - name: setup sops
+        uses: mdgreenwald/mozilla-sops-action@v1.2.0
       - name: Decrypt secrets
         run: |-
           echo ${{ secrets.AGE_SECRET_KEY }} > key.txt \
