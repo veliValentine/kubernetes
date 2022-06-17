@@ -7,7 +7,6 @@ env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
   GKE_CLUSTER: dwk-cluster
   GKE_ZONE: europe-north1-b
-  IMAGE: todo-app-image
 
 jobs:
   build-publish-deploy:
@@ -29,13 +28,6 @@ jobs:
       - name: Set kubectl access to cluster
         run: gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
 
-      - name: Set up Kustomize
-        uses: imranismail/setup-kustomize@v1
-
       - name: Delete
-        env:
-          NAMESPACE: ${{ steps.extract_branch.outputs.branch }}
         run: |-
-          kubectl config set-context --current --namespace=$NAMESPACE
-          kubectl delete -k .
-          kubectl delete namespaces $NAMESPACE
+          kubectl delete namespaces ${GITHUB_REF#refs/heads/}
