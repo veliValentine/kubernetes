@@ -55,8 +55,9 @@ jobs:
           kubectl create namespace "$NAMESPACE" || true
           kubectl config set-context --current --namespace="$NAMESPACE"
           kustomize edit set namespace "$NAMESPACE"
-          echo "set image"
           kustomize edit set image todo-app-image=gcr.io/$PROJECT_ID/$IMAGE:${GITHUB_REF#refs/heads/}-$GITHUB_SHA
+          echo "print kustomize"
+          cat kustomization.yaml
           echo "build kustomize"
           kustomize build .
           echo "continue"
