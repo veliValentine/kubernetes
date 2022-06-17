@@ -56,11 +56,9 @@ jobs:
           kubectl config set-context --current --namespace="$NAMESPACE"
           kustomize edit set namespace "$NAMESPACE"
           kustomize edit set image todo-app-image=gcr.io/$PROJECT_ID/$IMAGE:${GITHUB_REF#refs/heads/}-$GITHUB_SHA
-          echo "print kustomize"
-          cat kustomization.yaml
-          echo "build kustomize"
           kustomize build .
-          echo "continue"
           kustomize build . | kubectl apply -f -
+          echo "poop"
           kubectl rollout status deployment $IMAGE
+          echo "piipp"
           kubectl get services -o wide
