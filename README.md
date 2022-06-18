@@ -248,6 +248,22 @@ Given the life expectancy of this project there is no benefits of switchin to Go
 sh scripts/part3/3.08.sh
 ```
 
+#### 3.09
+```
+kubectl create namespace space-1
+```
+
+```
+export SOPS_AGE_KEY_FILE=$(pwd)/../key.txt
+sops --decrypt secrets/manifest/secret.enc.yaml | kubectl apply -f -
+```
+```
+kubectl apply \
+-f postgres/manifest/ \
+-f log-output/manifests/ \
+-f ping-pong-app/manifests/
+```
+
 ## Notes
 ```
 ```
