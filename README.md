@@ -238,6 +238,11 @@ Delete branch on github
 #### 3.06
 [Database as a Service vs Do It Yourself Database](./DBaaS_vs_DIY.md)
 
+#### 3.07
+The reason why we chose to use Persistent volume claims with postgreSQL over Google Cloud Sql providers is that we already implemented the persisten volumen database. 
+
+Given the life expectancy of this project there is no benefits of switchin to Google cloud Sql provier. Also the added cost and limited resources are currently issue ($$$).
+
 ## Notes
 ```
 ```
