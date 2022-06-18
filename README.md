@@ -243,6 +243,11 @@ The reason why we chose to use Persistent volume claims with postgreSQL over Goo
 
 Given the life expectancy of this project there is no benefits of switchin to Google cloud Sql provier. Also the added cost and limited resources are currently issue ($$$).
 
+#### 3.08
+```
+sh scripts/part3/3.08.sh
+```
+
 ## Notes
 ```
 ```

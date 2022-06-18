@@ -19,6 +19,10 @@ spec:
       containers:
         - name: todo-app
           image: todo-app-image
+          resources:
+            limits:
+              cpu: "10m"
+              memory: '100Mi'
           volumeMounts:
             - name: images-volume
               mountPath: /usr/src/app/images
