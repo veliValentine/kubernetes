@@ -235,6 +235,9 @@ Create branch and push it to github
 #### 3.05
 Delete branch on github
 
+#### 3.06
+[Database as a Service vs Do It Yourself Database](./DBaaS_vs_DIY.md)
+
 ## Notes
 ```
 ```
