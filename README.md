@@ -51,6 +51,8 @@ All applications has Docker image. Images can be found from [Docker hub - veliva
       - [3.08](#308)
       - [3.09](#309)
       - [3.10](#310)
+    - [Part4](#part4)
+      - [4.01](#401)
   - [Notes](#notes)
     - [Lens config](#lens-config)
     - [Set namespace](#set-namespace)
@@ -325,6 +327,19 @@ kubectl apply \
 [Picture of logs](./document/pictures/logs-screenschot.png)
 
 https://console.cloud.google.com/logs/query;query=resource.type%3D%22k8s_container%22%0Aresource.labels.project_id%3D%22dwk-gke-353608%22%0Aresource.labels.location%3D%22europe-north1-b%22%0Aresource.labels.cluster_name%3D%22dwk-cluster-2%22%0Aresource.labels.namespace_name%3D%22project-1%22%0Alabels.k8s-pod%2Fapp%3D%22todo-app%22;timeRange=PT30S;cursorTimestamp=2022-06-18T15:34:41.822997983Z?project=dwk-gke-353608
+
+### Part4
+
+#### 4.01
+```
+kubectl apply -f log-output/manifests/ -f ping-pong-app/manifests/
+```
+```
+kubectl get po -n space-1
+```
+```
+kubectl apply -f postgres/manifest/
+```
 
 ## Notes
 ```

@@ -18,13 +18,23 @@ spec:
       containers:
         - name: log-output
           image: velivalentine/log-output@sha256:f529310a8018746ec5f27699c00db8992c01544f5d19cc55a411598487544cbc
+
           resources:
             limits:
               cpu: "200m"
               memory: "100Mi"
+
           volumeMounts:
             - mountPath: /usr/src/logs
               name: shared-logs
+
+          readinessProbe:
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            httpGet:
+              path: /
+              port: 3000
+
           env:
             - name: MESSAGE
               valueFrom:
@@ -35,6 +45,7 @@ spec:
               value: "/usr/src/logs/shared.log"
             - name: PING_PONG_URL
               value: http://ping-pong-app-service:2345/
+
         - name: log-writer
           image: velivalentine/log-writer:1.10-prod
           resources:
