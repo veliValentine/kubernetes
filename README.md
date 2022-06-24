@@ -54,6 +54,7 @@ All applications has Docker image. Images can be found from [Docker hub - veliva
     - [Part4](#part4)
       - [4.01](#401)
       - [4.02](#402)
+      - [4.03](#403)
   - [Notes](#notes)
     - [Lens config](#lens-config)
     - [Set namespace](#set-namespace)
@@ -349,6 +350,13 @@ kubectl apply -k .
 ```
 kubectl delete -f todo-postgres/manifest/
 ```
+
+#### 4.03
+```
+sh scripts/port-forward-prometheus.sh
+```
+
+[Query result](http://localhost:9090/api/v1/query?query=count%28kube_pod_info%7Bnamespace%3D%22prometheus%22%2Ccreated_by_kind%3D%22StatefulSet%22%7D%29)
 
 ## Notes
 ```
