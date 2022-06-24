@@ -56,6 +56,9 @@ All applications has Docker image. Images can be found from [Docker hub - veliva
       - [4.02](#402)
       - [4.03](#403)
   - [Notes](#notes)
+    - [k3 cluster](#k3-cluster)
+      - [Add cluester](#add-cluester)
+      - [Remove cluster](#remove-cluster)
     - [Lens config](#lens-config)
     - [Set namespace](#set-namespace)
     - [Age key gen](#age-key-gen)
@@ -360,6 +363,17 @@ sh scripts/port-forward-prometheus.sh
 
 ## Notes
 ```
+```
+
+### k3 cluster
+
+#### Add cluester
+```
+k3d cluster create --port 8082:30080@agent:0 -p 8081:80@loadbalancer --agents 2
+```
+#### Remove cluster
+```
+k3d cluster delete
 ```
 
 ### Lens config
