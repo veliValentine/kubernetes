@@ -53,6 +53,7 @@ All applications has Docker image. Images can be found from [Docker hub - veliva
       - [3.10](#310)
     - [Part4](#part4)
       - [4.01](#401)
+      - [4.02](#402)
   - [Notes](#notes)
     - [Lens config](#lens-config)
     - [Set namespace](#set-namespace)
@@ -339,6 +340,14 @@ kubectl get po -n space-1
 ```
 ```
 kubectl apply -f postgres/manifest/
+```
+
+#### 4.02
+```
+kubectl apply -k .
+```
+```
+kubectl delete -f todo-postgres/manifest/
 ```
 
 ## Notes
