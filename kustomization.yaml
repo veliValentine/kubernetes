@@ -5,6 +5,7 @@ resources:
   - todo-app/manifests/deployment.yaml
   - todo-app/manifests/ingress.yaml
   - todo-app/manifests/service.yaml
+  - todo-app/manifests/analysistemplate.yaml
   - secrets/manifest/todo.secret.yaml
   - todo-postgres/manifest/service.yaml
   - todo-postgres/manifest/statefulset.yaml

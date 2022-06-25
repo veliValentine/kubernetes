@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: revert-update
+  namespace: project-1
+spec:
+  metrics:
+  - name: revert-update
+    initialDelay: 1m
+    successCondition: result < 1
+    provider:
+      prometheus:
+        address: http://kube-prometheus-stack-1602-prometheus.prometheus.svc.cluster.local:9090
+        query: sum(rate(container_cpu_usage_seconds_total{container!="", namespace="project-1"}[10m]))

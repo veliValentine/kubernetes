@@ -55,6 +55,7 @@ All applications has Docker image. Images can be found from [Docker hub - veliva
       - [4.01](#401)
       - [4.02](#402)
       - [4.03](#403)
+      - [4.04](#404)
   - [Notes](#notes)
     - [k3 cluster](#k3-cluster)
       - [Add cluester](#add-cluester)
@@ -360,6 +361,14 @@ sh scripts/port-forward-prometheus.sh
 ```
 
 [Query result](http://localhost:9090/api/v1/query?query=count%28kube_pod_info%7Bnamespace%3D%22prometheus%22%2Ccreated_by_kind%3D%22StatefulSet%22%7D%29)
+
+#### 4.04
+```
+kubectl apply -n argo-rollouts -f https://github.com/argoproj/argo-rollouts/releases/latest/download/install.yaml
+```
+```
+kubectl apply -k .
+```
 
 ## Notes
 ```
