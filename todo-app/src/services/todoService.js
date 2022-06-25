@@ -19,8 +19,19 @@ const deleteTodo = async (id) => {
   return await todo.destroy()
 }
 
+const updateTodo = async (id, newTodo) => {
+  if (!isValidTodo(newTodo)) throw new Error('Invalid todo')
+  const todo = await Todo.findByPk(id)
+  if (!todo) {
+    return await addTodo(todo)
+  }
+  todo.set(newTodo)
+  return await todo.save()
+}
+
 export default {
   getTodos,
   addTodo,
-  deleteTodo
+  deleteTodo,
+  updateTodo
 }

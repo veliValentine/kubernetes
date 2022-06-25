@@ -33,4 +33,14 @@ todoController.delete('/:id', async (req, res) => {
   }
 })
 
+todoController.put('/:id', async (req, res) => {
+  try {
+    const { id } = req.params
+    const updatedTodo = await todoService.updateTodo(id, req.body)
+    res.status(200).json(updatedTodo)
+  } catch (error) {
+    res.status(500).json({ error })
+  }
+})
+
 export default todoController

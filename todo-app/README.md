@@ -26,6 +26,9 @@ Node version `v16.15.0`
 ## Development mode
 Start application in development mode. Run `npm run dev`.
 
+## Start dev postgtres database
+Run `docker run -d -p 5432:5432 -e POSTGRES_PASSWORD=password postgres:14.3`
+
 ## Lint
 This project follows [standardjs](https://standardjs.com/) style guide.
 
