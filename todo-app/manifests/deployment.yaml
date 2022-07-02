@@ -59,3 +59,5 @@ spec:
                   key: POSTGRES_PASSWORD
             - name: DB_POSTGRES_URL
               value: postgres://$(POSTGRES_USERNAME):$(POSTGRES_PASSWORD)@todo-postgres-service:5432
+            - name: NATS_URL
+              value: nats://my-nats:4222

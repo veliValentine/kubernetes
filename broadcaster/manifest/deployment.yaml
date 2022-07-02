@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: broadcaster-app-dep
+  namespace: project-1
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: broadcaster-app
+  template:
+    metadata:
+      labels:
+        app: broadcaster-app
+    spec:
+      containers:
+        - name: broadcaster-app
+          image: broadcaster-image
+
+          resources:
+            limits:
+              cpu: "10m"
+              memory: "100Mi"
+
+          env:
+            - name: NATS_URL
+              value: nats://my-nats:4222

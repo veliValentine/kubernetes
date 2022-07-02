@@ -57,6 +57,7 @@ All applications has Docker image. Images can be found from [Docker hub - veliva
       - [4.03](#403)
       - [4.04](#404)
       - [4.05](#405)
+      - [4.06](#406)
   - [Notes](#notes)
     - [k3 cluster](#k3-cluster)
       - [Add cluester](#add-cluester)
@@ -372,6 +373,24 @@ kubectl apply -k .
 ```
 
 #### 4.05
+```
+kubectl apply -k .
+```
+
+#### 4.06
+Define endpoint env-variable for broadcast server to see created/uptaded todos. [Broadcaster README.md](./broadcaster/README.md)
+```
+helm repo add nats https://nats-io.github.io/k8s/helm/charts/
+```
+
+```
+helm repo update
+```
+
+```
+helm install -n project-1 my-nats nats/nats
+```
+
 ```
 kubectl apply -k .
 ```
