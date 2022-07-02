@@ -1,4 +1,5 @@
 import nats from 'nats'
+import receiverService from './receiverService.js'
 import config from './utils/config.js'
 import logger from './utils/logger.js'
 
@@ -6,22 +7,45 @@ const {
   NATS_URL
 } = config
 
-const natsConnections = nats.connect({
-  url: NATS_URL
+const stringCodec = nats.StringCodec()
+
+const natsConnections = await nats.connect({
+  servers: NATS_URL
 })
-const newMessageConnection = 'new.message'
 
-const onConnection = (connection) => {
-  connection.subscribe(newMessageConnection, (msg) => {
-    console.log({ msg })
-  })
+const messageConnection = 'message'
+const CREATED_TODO = 'created'
+const UPDATED_TODO = 'updated'
+
+const options = {
+  queue: 'broadcastMessageQueue'
 }
 
-const afterConnection = () => {
-  logger.log(`Listening ${NATS_URL}. Connected ${newMessageConnection}`)
+const messageSubscription = natsConnections.subscribe(messageConnection, options);
+
+const getDecodeMessage = ({ data }) => {
+  const decodedMessage = stringCodec.decode(data)
+  return JSON.parse(decodedMessage)
 }
 
-natsConnections
-  .then(onConnection)
-  .catch(logger.error)
-  .finally(afterConnection)
+(async () => {
+  for await (const cryptedMessage of messageSubscription) {
+    const message = getDecodeMessage(cryptedMessage)
+    const {
+      type,
+      todo
+    } = message
+    const todoId = todo.id
+    if (type === CREATED_TODO) {
+      return receiverService.sendReceiveMessage(`Created todo with id: ${todoId}`)
+    }
+    if (type === UPDATED_TODO) {
+      return receiverService.sendReceiveMessage(`Updated todo with id: ${todoId}`)
+    }
+    logger.error(`Unsupported message type '${type}'`)
+  }
+})()
+
+
+logger.log(`Listening ${NATS_URL}. Subscribe ${messageConnection}`)
+

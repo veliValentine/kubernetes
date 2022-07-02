@@ -31,6 +31,7 @@ Start application in development mode. Run `npm run dev`.
 |          |        |          |
 
 ## ENV
-| key      | default value    | info                  |
-| -------- | ---------------- | --------------------- |
-| NATS_URL | `localhost:4222` | Nats subscribe server |
+| key             | default value                                                | info                                     |
+| --------------- | ------------------------------------------------------------ | ---------------------------------------- |
+| `NATS_URL`      | `localhost:4222`                                             | Nats subscribe server                    |
+| `RECEIVER_HOST` | `https://322a99cf-c5e1-4c18-b5dc-34ae0c12a54e.mock.pstmn.io` | Server host where brodcast send messages |
