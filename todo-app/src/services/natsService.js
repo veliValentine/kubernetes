@@ -12,7 +12,7 @@ const UPDATED_TODO = 'updated'
 const stringCodec = nats.StringCodec()
 
 const natsConnections = await nats.connect({
-  url: NATS_URL
+  servers: NATS_URL
 })
 
 logger.log(`Listening ${NATS_URL}. Connected ${messageConnection}`)
