@@ -1,10 +1,13 @@
 import Todo from '../models/Todo.js'
+import natsService from './natsService.js'
 
 const getTodos = async () => await Todo.findAll()
 
 const addTodo = async (todo) => {
   if (!isValidTodo(todo)) throw new Error('Invalid todo')
-  return await Todo.create(todo)
+  const createdTodo = await Todo.create(todo)
+  natsService.publishCreatedTodo(createdTodo)
+  return createdTodo
 }
 
 const isValidTodo = ({ text = '' }) => {
@@ -26,7 +29,9 @@ const updateTodo = async (id, newTodo) => {
     return await addTodo(todo)
   }
   todo.set(newTodo)
-  return await todo.save()
+  const updatedTodo = await todo.save()
+  natsService.publishUpdatedTodo(updatedTodo)
+  return updatedTodo
 }
 
 export default {

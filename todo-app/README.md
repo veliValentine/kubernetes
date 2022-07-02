@@ -52,3 +52,4 @@ To autofix style errors run `npm run lint-fix`
 | `PORT`              | `3000`                                        | application port        |
 | `IMAGE_FOLDER_PATH` | null                                          | where images are stored |
 | `DB_POSTGRES_URL`   | `postgres://postgres:password@localhost:5432` | Url for postgres db     |
+| `NATS_URL`          | `localhost:4222`                              | Nats subscribe server   |
