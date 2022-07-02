@@ -31,6 +31,6 @@ Start application in development mode. Run `npm run dev`.
 |          |        |          |
 
 ## ENV
-| key | default value | info |
-| --- | ------------- | ---- |
-|     |               |      |
+| key      | default value    | info                  |
+| -------- | ---------------- | --------------------- |
+| NATS_URL | `localhost:4222` | Nats subscribe server |
