@@ -1,0 +1,18 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: nats
+  namespace: project-1
+spec:
+  interval: 30s
+  chart:
+    spec:
+      chart: nats
+      version: "0.17.x"
+      sourceRef:
+        kind: HelmRepository
+        name: nats-rep
+        namespace: flux-system
+      interval: 1m
+  values:
+    replicaCount: 1

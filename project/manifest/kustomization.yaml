@@ -14,6 +14,7 @@ resources:
   - postgres/service.yaml
   - postgres/statefulset.yaml
   - broadcaster/deployment.yaml
+  - nats/helmRepository.yaml
 
 images:
   - name: todo-app-image
