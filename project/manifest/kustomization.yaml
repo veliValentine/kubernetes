@@ -14,7 +14,7 @@ resources:
   - postgres/service.yaml
   - postgres/statefulset.yaml
   - broadcaster/deployment.yaml
-  - https://nats-io.github.io/k8s/setup.sh
+  - nats/helmRepository.yaml
 
 images:
   - name: todo-app-image
