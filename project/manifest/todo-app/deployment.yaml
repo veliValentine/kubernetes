@@ -61,9 +61,3 @@ spec:
               value: postgres://$(POSTGRES_USERNAME):$(POSTGRES_PASSWORD)@todo-postgres-service:5432
             - name: NATS_URL
               value: nats://my-nats:4222
-        - name: nats
-          image: nats@sha256:4199deae36b30cf612a8a5ac96614e60dba809dd72d73a5d3534faa521a12261
-          resources:
-            limits:
-              cpu: "10m"
-              memory: "100Mi"
