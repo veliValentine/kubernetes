@@ -1,15 +1,15 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - manifest/log-output/configmap.yaml
-  - manifest/log-output/deployment.yaml
-  - manifest/log-output/ingress.yaml
-  - manifest/log-output/service.yaml
-  - manifest/ping-pong-app/deployment.yaml
-  - manifest/ping-pong-app/service.yaml
-  - manifest/postgres/service.yaml
-  - manifest/postgres/statefulset.yaml
-  - manifest/secrets/secret.yaml
+  - log-output/configmap.yaml
+  - log-output/deployment.yaml
+  - log-output/ingress.yaml
+  - log-output/service.yaml
+  - ping-pong-app/deployment.yaml
+  - ping-pong-app/service.yaml
+  - postgres/service.yaml
+  - postgres/statefulset.yaml
+  - secrets/secret.yaml
 images:
   - name: log-output-image
     newName: velivalentine/log-output@sha256:f529310a8018746ec5f27699c00db8992c01544f5d19cc55a411598487544cbc
