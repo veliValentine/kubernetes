@@ -73,6 +73,8 @@ All applications has Docker image. Images can be found from [Docker hub - veliva
       - [create cluster](#create-cluster)
       - [Enable cluster service](#enable-cluster-service)
       - [delete cluster](#delete-cluster)
+    - [flux](#flux)
+      - [install](#install)
 
 ## Install - dev
 Intall nvm (node version manager)
@@ -463,4 +465,18 @@ gcloud services enable container.googleapis.com
 #### delete cluster
 ```
 gcloud container clusters delete <CLUSTER-ID> --zone=europe-north1-b
+```
+
+### flux
+#### install
+```
+flux bootstrap github \
+    --owner=veliValentine\
+    --repository=kubernetes \
+    --personal \
+    --private=false
+```
+
+
+```
 ```
