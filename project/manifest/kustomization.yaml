@@ -8,7 +8,7 @@ resources:
   - todo-app/ingress.yaml
   - todo-app/service.yaml
   - todo-app/analysistemplate.yaml
-  - secrets/secret.yaml
+  #- secrets/secret.yaml
   - postgres/service.yaml
   - postgres/statefulset.yaml
   - broadcaster/deployment.yaml
