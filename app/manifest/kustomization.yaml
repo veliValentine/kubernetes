@@ -13,7 +13,7 @@ resources:
   - ping-pong-app/service.yaml
   - postgres/service.yaml
   - postgres/statefulset.yaml
-  - secrets/secret.yaml
+  #- secrets/secret.yaml
 images:
   - name: log-output-image
     newName: velivalentine/log-output@sha256:f529310a8018746ec5f27699c00db8992c01544f5d19cc55a411598487544cbc
