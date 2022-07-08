@@ -24,4 +24,4 @@ spec:
 
           env:
             - name: NATS_URL
-              value: nats://my-nats:4222
+              value: nats://nats:4222
