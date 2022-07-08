@@ -59,6 +59,7 @@ All applications has Docker image. Images can be found from [Docker hub - veliva
       - [4.05](#405)
       - [4.06](#406)
       - [4.07](#407)
+      - [4.08](#408)
   - [Notes](#notes)
     - [k3 cluster](#k3-cluster)
       - [Add cluester](#add-cluester)
@@ -403,7 +404,10 @@ kubectl apply -k .
 kubectl apply -f app/manifest/secrets/secret.yaml
 ```
 
-
+#### 4.08
+```
+kubectl apply -f project/manifest/secrets/secret.yaml
+```
 
 
 ## Notes
