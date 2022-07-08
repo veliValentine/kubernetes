@@ -1,6 +1,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+
 namespace: project-1
+
 resources:
   - namespace/project-1.yaml
   - todo-app/cron-job.yaml
@@ -12,6 +14,7 @@ resources:
   - postgres/service.yaml
   - postgres/statefulset.yaml
   - broadcaster/deployment.yaml
+
 images:
   - name: todo-app-image
     newName: velivalentine/todo-app@sha256:834735a3c2861096c4030ef5155e78a215270f2f691c44d97ad92a76cfe849b2
@@ -19,3 +22,8 @@ images:
     newName: postgres@sha256:84c6ea4333ae18f25ea0fb18bb142156f2a2e545e0a779d93bbf08079e56bdaf
   - name: broadcaster-image
     newName: velivalentine/broadcaster@sha256:5c0ef4e2face3ed5b54181e2f3c40d111ba0bfcb44f2a258f112272822dd5bae
+
+helmCharts:
+  - name: my-nats
+    repo: https://nats-io.github.io/k8s/helm/charts/
+    namespace: project-1
