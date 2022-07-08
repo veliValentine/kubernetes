@@ -8,6 +8,6 @@ spec:
     kind: GitRepository
     name: kubernetes-repo
   interval: 5m
-  path:  ./app-config/manifests
+  path:  ./manifest
   prune: true
   validation: client
