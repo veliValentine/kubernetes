@@ -408,7 +408,7 @@ kubectl apply -f app/manifest/secrets/secret.yaml
 ```
 kubectl apply -f project/manifest/secrets/secret.yaml
 ```
-
+Bonus using sops secret with flux not done. How to do -> https://fluxcd.io/docs/guides/mozilla-sops/
 
 ## Notes
 ```
