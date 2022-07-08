@@ -17,7 +17,7 @@ spec:
         - name: shared-logs
       containers:
         - name: log-output
-          image: velivalentine/log-output@sha256:f529310a8018746ec5f27699c00db8992c01544f5d19cc55a411598487544cbc
+          image: log-output-image
 
           resources:
             limits:
@@ -47,7 +47,7 @@ spec:
               value: http://ping-pong-app-service:2345/
 
         - name: log-writer
-          image: velivalentine/log-writer:1.10-prod
+          image: log-writer-image
           resources:
             limits:
               cpu: "150m"
