@@ -11,3 +11,4 @@ spec:
   path:  ./manifest
   prune: true
   validation: client
+  targetNamespace: space-1
