@@ -64,6 +64,7 @@ All applications has Docker image. Images can be found from [Docker hub - veliva
       - [5.02](#502)
       - [5.03](#503)
       - [5.04](#504)
+      - [5.06](#506)
   - [Notes](#notes)
     - [k3 cluster](#k3-cluster)
       - [Add cluester](#add-cluester)
@@ -429,6 +430,33 @@ linkerd viz dashboard &
 
 #### 5.04
 [PLATFORM_COMPARISON.md](./document/PLATFORM_COMPARISON.md)
+
+#### 5.06
+!['https://landscape.cncf.io/'](./document/landscape.png)
+
+The most red circles were used outside of this cource. There must be a lot of dependencies that I used during this cource that I don't recognize from the image.
+
+Also some of the circled products I used during this cource but also from previous cources and from work.
+
+The ones I did recognized from this cource are
+- postgres sql
+  - used as sql database during the project applications
+- kafka. Not sure when we used this. It sounded familiar.
+- nats
+  - used in project application to connect different services
+- helm
+  - used to install custom resources to out kubernetes cluster
+- github actions
+  - used to create and publish images based on version controll
+  - also used outside of this cource
+- k3s
+  - our local kubernetes cluster manager
+- kubernetes
+  - the way to go
+- traefik proxy (most like used as dependency)
+  - I think kubernetes services used this
+- google container registery
+  - used to store some of our images
 
 ## Notes
 ```
