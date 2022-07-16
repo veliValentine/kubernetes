@@ -309,7 +309,7 @@ Create branch and push it to github
 Delete branch on github
 
 #### 3.06
-[Database as a Service vs Do It Yourself Database](./DBaaS_vs_DIY.md)
+[Database as a Service vs Do It Yourself Database](./document/DBaaS_vs_DIY.md)
 
 #### 3.07
 The reason why we chose to use Persistent volume claims with postgreSQL over Google Cloud Sql providers is that we already implemented the persisten volumen database. 
