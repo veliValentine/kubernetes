@@ -14,4 +14,4 @@ Althought Openshift provides
 - different cloud providers
 - stronger offering
 
-I would 
+I would still choose Rancher.
