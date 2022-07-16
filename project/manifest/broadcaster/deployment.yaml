@@ -10,18 +10,18 @@ spec:
       app: broadcaster-app
   template:
     metadata:
+      annotations:
+        linkerd.io/inject: enabled
       labels:
         app: broadcaster-app
     spec:
       containers:
-        - name: broadcaster-app
-          image: broadcaster-image
-
-          resources:
-            limits:
-              cpu: "10m"
-              memory: "100Mi"
-
-          env:
-            - name: NATS_URL
-              value: nats://nats:4222
+      - env:
+        - name: NATS_URL
+          value: nats://nats:4222
+        image: broadcaster-image
+        name: broadcaster-app
+        resources:
+          limits:
+            cpu: 10m
+            memory: 100Mi

@@ -10,54 +10,50 @@ spec:
       app: todo-app
   template:
     metadata:
+      annotations:
+        linkerd.io/inject: enabled
       labels:
         app: todo-app
     spec:
-      volumes:
-        - name: images-volume
-          emptyDir: {}
       containers:
-        - name: todo-app
-          image: todo-app-image
-
-          resources:
-            limits:
-              cpu: "10m"
-              memory: "100Mi"
-
-          volumeMounts:
-            - name: images-volume
-              mountPath: /usr/src/app/images
-
-          readinessProbe:
-            initialDelaySeconds: 20
-            periodSeconds: 5
-            httpGet:
-              path: /todos
-              port: 3000
-
-
-          livenessProbe:
-            initialDelaySeconds: 20
-            periodSeconds: 5
-            httpGet:
-              path: /todos
-              port: 3000
-
-          env:
+        - env:
             - name: IMAGE_FOLDER_PATH
               value: /usr/src/app/images
             - name: POSTGRES_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: todo-secrets
                   key: POSTGRES_USERNAME
+                  name: todo-secrets
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: todo-secrets
                   key: POSTGRES_PASSWORD
+                  name: todo-secrets
             - name: DB_POSTGRES_URL
               value: postgres://$(POSTGRES_USERNAME):$(POSTGRES_PASSWORD)@todo-postgres-service:5432
             - name: NATS_URL
               value: nats://nats:4222
+          image: todo-app-image
+          livenessProbe:
+            httpGet:
+              path: /todos
+              port: 3000
+            initialDelaySeconds: 20
+            periodSeconds: 5
+          name: todo-app
+          readinessProbe:
+            httpGet:
+              path: /todos
+              port: 3000
+            initialDelaySeconds: 20
+            periodSeconds: 5
+          resources:
+            limits:
+              cpu: 10m
+              memory: 100Mi
+          volumeMounts:
+            - mountPath: /usr/src/app/images
+              name: images-volume
+      volumes:
+        - emptyDir: {}
+          name: images-volume
