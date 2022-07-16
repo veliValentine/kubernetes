@@ -63,6 +63,7 @@ All applications has Docker image. Images can be found from [Docker hub - veliva
     - [Part 5](#part-5)
       - [5.02](#502)
       - [5.03](#503)
+      - [5.04](#504)
   - [Notes](#notes)
     - [k3 cluster](#k3-cluster)
       - [Add cluester](#add-cluester)
@@ -425,6 +426,9 @@ linkerd viz dashboard &
 
 #### 5.03
 [./document/5.03/README.md](./document/5.03/README.md)
+
+#### 5.04
+[PLATFORM_COMPARISON.md](./document/PLATFORM_COMPARISON.md)
 
 ## Notes
 ```
