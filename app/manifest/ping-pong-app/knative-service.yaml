@@ -1,0 +1,32 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: pingpong-serverless
+  namespace: space-1
+spec:
+  template:
+    metadata:
+      name: pingpong-serverless-v1
+    spec:
+      containers:
+        - name: ping-pong-app
+          image: ping-pong-app-image
+          
+          resources:
+            limits:
+              cpu: "100m"
+              memory: "100Mi"
+        
+          env:
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secrets
+                  key: POSTGRES_USERNAME
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secrets
+                  key: POSTGRES_PASSWORD
+            - name: DB_POSTGRES_URL
+              value: "postgres://$(POSTGRES_USER):$(POSTGRES_PASSWORD)@postgres-service:5432"

@@ -9,7 +9,8 @@ resources:
   - log-output/deployment.yaml
   - log-output/ingress.yaml
   - log-output/service.yaml
-  - ping-pong-app/deployment.yaml
+  #- ping-pong-app/deployment.yaml
+  - ping-pong-app/knative-service.yaml
   - ping-pong-app/service.yaml
   - postgres/service.yaml
   - postgres/statefulset.yaml

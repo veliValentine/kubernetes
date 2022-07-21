@@ -64,6 +64,7 @@ All applications has Docker image. Images can be found from [Docker hub - veliva
       - [5.02](#502)
       - [5.03](#503)
       - [5.04](#504)
+      - [5.05](#505)
       - [5.06](#506)
   - [Notes](#notes)
     - [k3 cluster](#k3-cluster)
@@ -430,6 +431,29 @@ linkerd viz dashboard &
 
 #### 5.04
 [PLATFORM_COMPARISON.md](./document/PLATFORM_COMPARISON.md)
+
+#### 5.05
+```
+k3d cluster delete
+```
+```
+k3d cluster create --port 8082:30080@agent:0 -p 8081:80@loadbalancer --agents 2 --k3s-arg "--disable=traefik@server:0"
+```
+```
+kubectl apply -f app/manifest/secrets/secret.yaml -n space-1
+```
+```
+kubectl apply -k app/manifest/
+```
+```
+kubectl get po -n space-1 --watch
+```
+```
+kubectl get ksvc -n space-1
+```
+```
+curl -H "Host: pingpong-serverless.space-1.example.com" http://localhost:8081
+```
 
 #### 5.06
 !['https://landscape.cncf.io/'](./document/landscape.png)
