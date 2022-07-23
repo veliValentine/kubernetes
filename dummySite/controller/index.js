@@ -1,27 +1,28 @@
 import axios from 'axios'
 import http from 'http'
+import https from 'https'
 import config, { PROD } from './utils/config.js'
 import logger from './utils/logger.js'
 
-import k8s from '@kubernetes/client-node'
-
 const getErrorMessage = error => error?.response?.data ?? error?.message ?? error
 
-const kc = new k8s.KubeConfig()
-config.NODE_ENV === PROD ? kc.loadFromCluster() : kc.loadFromDefault()
-logger.log('Using env:', config.NODE_ENV, kc.clusters.server)
-const currentKubeServer = kc.getCurrentCluster()
-logger.log(`Using kube (${kc.getCurrentCluster().name}) server: ${currentKubeServer.server}`)
+const urlHost = config.NODE_ENV === PROD ? 'https://localhost:43133' : 'http://localhost:8080'
 
 const dummySitesApiUrl = '/apis/stable.dwk/v1/dummysites'
 
 const sendRequestToApi = async (api, method = 'get') => {
   try {
-    const urlHost = currentKubeServer.server
     const url = `${urlHost}${api}`
 
     logger.log('Sending request to api', JSON.stringify({ method, url }))
-    const { data } = await axios[method](url)
+    const { data } = await axios[method](url, {
+      httpsAgent: new https.Agent({
+        rejectUnauthorized: false
+      }),
+      headers: {
+        Authorization: config.BEARER_TOKEN
+      }
+    })
     return data
   } catch (error) {
     const errorMessage = getErrorMessage(error)
@@ -31,8 +32,9 @@ const sendRequestToApi = async (api, method = 'get') => {
 
 
 const getDummySiteInfo = async () => {
-  const dummySites = await sendRequestToApi(dummySitesApiUrl)
-  console.log({ dummySites })
+  const dummySitesResponse = await sendRequestToApi(dummySitesApiUrl)
+
+  const dummySites = dummySitesResponse.items
 
   if (!dummySites?.length) {
     throw new Error('no dummy sites')
@@ -72,4 +74,4 @@ const app = async () => {
   createServer(site)
 }
 
-app()
+app().catch(console.error)
