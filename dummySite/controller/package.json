@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "custom controller to display dummysites",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -25,5 +26,10 @@
   "homepage": "https://github.com/veliValentine/kubernetes#readme",
   "devDependencies": {
     "nodemon": "^2.0.19"
+  },
+  "dependencies": {
+    "@kubernetes/client-node": "^0.17.0",
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.1"
   }
 }
