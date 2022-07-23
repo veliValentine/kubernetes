@@ -61,6 +61,7 @@ All applications has Docker image. Images can be found from [Docker hub - veliva
       - [4.07](#407)
       - [4.08](#408)
     - [Part 5](#part-5)
+      - [5.01](#501)
       - [5.02](#502)
       - [5.03](#503)
       - [5.04](#504)
@@ -417,6 +418,30 @@ kubectl apply -f project/manifest/secrets/secret.yaml
 Bonus using sops secret with flux not done. How to do -> https://fluxcd.io/docs/guides/mozilla-sops/
 
 ### Part 5
+
+#### 5.01
+```
+kubectl apply -k dummySite/manifest/
+```
+
+Get the bearer token and add it to deployment
+```
+sh scripts/bearer-tokens.sh
+```
+
+Apply deployment and dummysite
+```
+kubectl apply \
+-f dummySite/manifest/deployment.yaml \
+-f dummySite/manifest/dummySite.yaml
+```
+
+```
+sh scripts/dummyPortForward.sh
+```
+
+Open dummysite [http://localhost:3000](http://localhost:3000)
+
 
 #### 5.02
 ```

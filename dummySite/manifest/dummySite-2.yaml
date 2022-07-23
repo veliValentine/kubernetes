@@ -3,4 +3,4 @@ kind: DummySite
 metadata:
   name: dummy-site
 spec:
-  website_url: "https://example.com/"
+  website_url: "https://wikipedia.org"
