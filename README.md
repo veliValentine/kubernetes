@@ -12,6 +12,7 @@ All applications has Docker image. Images can be found from [Docker hub - veliva
 - [kubernetes](#kubernetes)
   - [About](#about)
   - [Table of contents](#table-of-contents)
+  - [Certification](#certification)
   - [Install - dev](#install---dev)
   - [Run production applications](#run-production-applications)
   - [Excerises](#excerises)
@@ -84,6 +85,9 @@ All applications has Docker image. Images can be found from [Docker hub - veliva
       - [delete cluster](#delete-cluster)
     - [flux](#flux)
       - [install](#install)
+
+## Certification
+![./document/pictures/certification.png](./document/pictures/certification.png)
 
 ## Install - dev
 Intall nvm (node version manager)
