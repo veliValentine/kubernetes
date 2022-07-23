@@ -1,0 +1,29 @@
+{
+  "name": "dummy-site-controller",
+  "version": "1.0.0",
+  "description": "custom controller to display dummysites",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/veliValentine/kubernetes.git"
+  },
+  "keywords": [
+    "kubernetes",
+    "custom-resource",
+    "docker"
+  ],
+  "author": "veliValentine",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/veliValentine/kubernetes/issues"
+  },
+  "homepage": "https://github.com/veliValentine/kubernetes#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
