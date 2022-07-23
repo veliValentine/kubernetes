@@ -1,6 +1,6 @@
 import axios from 'axios'
 import http from 'http'
-import config from './utils/config.js'
+import config, { PROD } from './utils/config.js'
 import logger from './utils/logger.js'
 
 import k8s from '@kubernetes/client-node'
@@ -8,13 +8,16 @@ import k8s from '@kubernetes/client-node'
 const getErrorMessage = error => error?.response?.data ?? error?.message ?? error
 
 const kc = new k8s.KubeConfig()
-kc.loadFromCluster()
+config.NODE_ENV === PROD ? kc.loadFromCluster() : kc.loadFromDefault()
+logger.log('Using env:', config.NODE_ENV, kc.clusters.server)
+const currentKubeServer = kc.getCurrentCluster()
+logger.log(`Using kube (${kc.getCurrentCluster().name}) server: ${currentKubeServer.server}`)
 
 const dummySitesApiUrl = '/apis/stable.dwk/v1/dummysites'
 
 const sendRequestToApi = async (api, method = 'get') => {
   try {
-    const urlHost = kc.getCurrentCluster().server
+    const urlHost = currentKubeServer.server
     const url = `${urlHost}${api}`
 
     logger.log('Sending request to api', JSON.stringify({ method, url }))
