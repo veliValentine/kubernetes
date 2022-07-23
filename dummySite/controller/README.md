@@ -10,8 +10,8 @@
 
 ## Env variables
 
-| key            | default value | info                                            |
-| -------------- | ------------- | ----------------------------------------------- |
-| `PORT`         | `3000`        | `Application port`                              |
-| `NODE_ENV`     | `prod`        | `prod` OR `dev`                                 |
-| `BEARER_TOKEN` | undefined     | Bearer token for dummy site kubernetes item api |
+| key            | default value | info                                                              |
+| -------------- | ------------- | ----------------------------------------------------------------- |
+| `PORT`         | `3000`        | `Application port`                                                |
+| `NODE_ENV`     | `prod`        | `prod` OR `dev`                                                   |
+| `BEARER_TOKEN` | undefined     | Bearer token for dummy site kubernetes item api. `Bearer <TOKEN> ` |
